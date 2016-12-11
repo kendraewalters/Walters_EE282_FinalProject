@@ -1,0 +1,11 @@
+#!/usr/bin/env Rscript
+
+args <- commandArgs(trailingOnly = TRUE)
+
+infile <- args[1]
+
+dat <- read.table(infile, col.names = c("Transcripts"))
+
+png(filename = "./plot_Transcripts_Per_Gene")
+hist(log(dat$Transcripts), xlab = "log(Transcripts Per Gene)", main = NULL, col = "purple")
+dev.off()

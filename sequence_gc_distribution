@@ -1,0 +1,12 @@
+#!/usr/bin/env Rscript
+
+args <- commandArgs(trailingOnly = TRUE)
+
+infile <- args[1]
+
+dat <- read.table(infile, col.names = c("GC"))
+
+png(filename = "./plot_Sequence_GC_Distribution")
+hist(dat$GC, xlab = "% GC Content", main = NULL, col = "deepskyblue2")
+dev.off()
+

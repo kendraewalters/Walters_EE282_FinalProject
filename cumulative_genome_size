@@ -1,0 +1,13 @@
+#!/usr/bin/env Rscript
+
+args <- commandArgs(trailingOnly = TRUE)
+
+infile <- args[1]
+
+dat <- read.table(infile, col.names = c("Length"))
+
+vec <- as.vector(dat$Length)
+x <- c(1:length(vec))
+png(filename = "./plot_Cumulative_Genome_Size")
+plot(x, cumsum(sort(vec, decreasing = T)), ylab = "Cumulative Length", xlab = "Number of Sequences", type = "o", log = "x", col = "maroon2")
+dev.off()
